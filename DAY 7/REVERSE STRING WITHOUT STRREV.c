@@ -1,20 +1,27 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char str[100];
-    int len, isPalindrome = 1;
+    char str[100], temp;
+    int i, length = 0;
 
+    // Input string
     printf("Enter a string: ");
     scanf("%s", str);
 
-    len = strlen(str);
-    for (int i = 0; i < len / 2; i++) {
-        if (str[i] != str[len - i - 1]) {
-           
-        }
+    // Find the length manually
+    while (str[length] != '\0') {
+        length++;
     }
-	printf("%s", str);
+
+    // Reverse the string
+    for (i = 0; i < length / 2; i++) {
+        temp = str[i];
+        str[i] = str[length - 1 - i];
+        str[length - 1 - i] = temp;
+    }
+
+    // Output the reversed string
+    printf("Reversed string: %s\n", str);
 
     return 0;
 }
